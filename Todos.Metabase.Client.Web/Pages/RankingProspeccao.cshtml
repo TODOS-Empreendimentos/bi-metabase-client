@@ -1,0 +1,56 @@
+﻿@page
+@model Todos.Metabase.Client.Web.Pages.RankingProspeccaoModel
+@{}
+
+<div class="row">
+    <form method="post" class="form-inline">
+        <label asp-for="Inicio" class="mr-2"></label>
+        <input type="date" asp-for="Inicio" />
+        <label asp-for="Fim" class="mr-2 ml-4"></label>
+        <input type="date" asp-for="Fim" />
+        <button type="submit" class="btn btn-primary ml-2">Buscar</button>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> <label asp-for="Ranking[0].Regional"></label></th>
+                    <th> <label asp-for="Ranking[0].Franquia"></label></th>
+                    <th> <label asp-for="Ranking[0].Vendedor"></label></th>
+                    <th> <label asp-for="Ranking[0].TotalVendas"></label></th>
+                    <th> <label asp-for="Ranking[0].VendasCartaoCredito"></label></th>
+                    <th> <label asp-for="Ranking[0].PorcentagemCC"></label></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rankItem in Model.Ranking)
+                {
+                    <tr>
+                        <td>
+                            @rankItem.Regional
+                        </td>
+                        <td>
+                            @rankItem.Franquia
+                        </td>
+                        <td>
+                            @rankItem.Vendedor
+                        </td>
+                        <td>
+                            @rankItem.TotalVendas
+                        </td>
+                        <td>
+                            @rankItem.VendasCartaoCredito
+                        </td>
+                        <td>
+                            @rankItem.PorcentagemCC
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
